@@ -1,28 +1,26 @@
-var app = angular.module('myApp', ["firebase","toastr"]);
-<<<<<<< HEAD
+var app = angular.module('myApp', ["firebase", 'toastr']);
 
+/* 
+ * Code sets the environment variables as a constant (using window() in env.js) 
+ * on the module so that they can be used for config. The inject so that disableLogging()
+ * can work like a normal angular function with depedencies as namespaces 
+*/
 var env = {};
-// Import variables if present (from env.js)
 if(window){
-  Object.assign(env, window.__env);
+    Object.assign(env, window.__env);
 }
 app.constant('__env', env);
-
+    
 function disableLogging($logProvider, __env){
   $logProvider.debugEnabled(__env.enableDebug);
 }
-
-// Inject dependencies
 disableLogging.$inject = ['$logProvider', '__env'];
 
+/* Config Functions*/
 app.config(disableLogging);
-app.config(function(toastrConfig) {
 
-=======
+app.config(function() {
 
-app.config(function(toastrConfig) {
-    
->>>>>>> 4296c4c... Toastr and Login
     var config = {
         // This tells firebase where to look.
         apiKey: __env.apiKey,
@@ -34,14 +32,14 @@ app.config(function(toastrConfig) {
     firebase.initializeApp(config); // Initialize this app with your look info
 });
 
-app.controller("MainController", ["$scope", "$firebaseObject", "$window", "$http",
-    function($scope, $firebaseObject, $window) {
+app.controller("MainController", ["$scope", "$firebaseObject", "$window",
+    function($scope, $firebaseObject, $window, toastr) {
         var ref = firebase.database().ref();
         var obj = $firebaseObject(ref);
 
         /* To take an action after the data loads, use the $loaded() promise */
         obj.$loaded().then(function() {
-            /* To iterate the key/value pairs of the object, use angular.forEach() */
+            // To iterate the key/value pairs of the object, use angular.forEach()
             angular.forEach(obj, function(value, key) {
                 console.log(key, value);
             });
@@ -57,7 +55,7 @@ app.controller("MainController", ["$scope", "$firebaseObject", "$window", "$http
             currentPage: "default",
             currentPageContent: "default",
         };
-        console.log($scope.data.object);
+        //console.log($scope.data.object);
 
         /* Set the prop to the parent */
         $scope.setObjectProp = function(prop) {
@@ -69,11 +67,13 @@ app.controller("MainController", ["$scope", "$firebaseObject", "$window", "$http
             */
             //$window.location.href = "apage.html";
 
+            toastr.success('Hello world!', 'Toastr fun!');
 
         }
     }
 ]);
-/*
+
+/* References
 https://docs.angularjs.org/guide/services
 http://jsfiddle.net/e8tEX/
 */

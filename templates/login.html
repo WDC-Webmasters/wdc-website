@@ -1,76 +1,55 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
-    <head>
-        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="../node_modules/tether/dist/js/tether.min.js"></script>
-        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
 
-        <script src="../node_modules/angular/angular.min.js"></script>
-<<<<<<< HEAD
-        <script src="../node_modules/firebase/firebase.js"></script>
-        <script src="../node_modules/angularfire/dist/angularfire.min.js"></script>
-        <script src="../scripts/app.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+<head>
+    <!--local node_modules (should switch to cdn later)-->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/tether/dist/js/tether.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--CDN node-modules-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularFire/2.3.0/angularfire.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
+    <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <!--local scripts for angularjs controllers-->
+    <script src="../src/app/config/env.js"></script>
+    <script src="../scripts/app.js"></script>
+    <script src="../scripts/loginCtrl.js"></script>
+    
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<div ng-controller="MainController" ng-include="'navbar.html'"></div>
 
-        <link rel="stylesheet" type="text/css" href="../node_modules/angular-toastr/dist/angular-toastr.min.css"/>
-        <script type="text/javascript" src="../node_modules/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
-
-        <script src="../scripts/loginCtrl.js"></script>
-=======
-        <script src="..\node_modules\firebase\firebase.js"></script>
-        <script src="..\node_modules\angularfire\dist\angularfire.min.js"></script>
-        <script src="../scripts/app.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
-
-
-
-        <link rel="stylesheet" type="text/css" href="..\node_modules\angular-toastr\dist\angular-toastr.min.css" />
-        <script type="text/javascript" src="..\node_modules\angular-toastr\dist\angular-toastr.tpls.min.js"></script>
-
-        <script src="../scripts/loginCtrl.js"></script>
-
->>>>>>> 4296c4c... Toastr and Login
-
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-<<<<<<< HEAD
-    <div ng-controller="MainController" ng-include="'navbar.html'"></div>
-=======
-        <div ng-controller="MainController" ng-include="'navbar.html'"></div>
->>>>>>> 4296c4c... Toastr and Login
-    <body ng-controller="loginCtrl">
-        <form action="" method="post" class="form-horizontal">
-            <div class="form-control-static">
-                <div class="col-sm-offset-2 col-sm-6">
-                    <label for="emailEntry">Email address</label>
-                    <input type="text" class="form-control" value="" placeholder="Email" id="emailEntry" ng-model="email">
-                </div>
+<body ng-controller="loginCtrl">
+    <form action="" method="post" class="form-horizontal">
+        <div class="form-control-static">
+            <div class="col-sm-offset-2 col-sm-6">
+                <label for="emailEntry">Email address</label>
+                <input type="text" class="form-control" value="" placeholder="Email" id="emailEntry" ng-model="email">
             </div>
-            <div class="form-control-static">
-                <div class="col-sm-offset-2 col-sm-6">
-                    <label for="passwordEntry">Password</label>
-<<<<<<< HEAD
-                    <input type="password" class="form-control" placeholder="Password" value="" id="passwordEntry" ng-model="password">
-=======
-                    <input type="text" class="form-control" placeholder="Password" value="" id="passwordEntry" ng-model="password">
->>>>>>> 4296c4c... Toastr and Login
-                </div>
+        </div>
+        <div class="form-control-static">
+            <div class="col-sm-offset-2 col-sm-6">
+                <label for="passwordEntry">Password</label>
+                <input type="password" class="form-control" placeholder="Password" value="" id="passwordEntry" ng-model="password">
             </div>
-            <div class="form-control-static">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" name="signIn" class="btn btn-primary" ng-click="logIn(email,password)">Sign In</button>
-                    <button type="button" name="signUp" class="btn btn-secondary" ng-click="signUp(email,password)">Register</button>
-<<<<<<< HEAD
-                    <br><br>
-                    <button type="button" ng-click="logOut()" name="logOut" ng-if="isUser" class="btn btn-primary">Logout</button>
-=======
-                    <br><br><button type="button" name="logOut" ng-if="isUser" class="btn btn-primary">Logout</button>
->>>>>>> 4296c4c... Toastr and Login
-                </div>
+        </div>
+        <div class="form-control-static">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" name="signIn" class="btn btn-primary" ng-click="logIn(email,password)">Sign In</button>
+                <button type="button" name="signUp" class="btn btn-secondary" ng-click="signUp(email,password)">Register</button>
+                <br>
+                <br>
+                <button type="button" ng-click="logOut()" name="logOut" ng-if="isUser" class="btn btn-primary">Logout</button>
             </div>
-        </form>
+        </div>
+    </form>
+</body>
 
-    </body>
 </html>
