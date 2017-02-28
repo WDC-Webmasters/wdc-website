@@ -1,0 +1,34 @@
+{
+  "name": "modules",
+  "version": "1.0.0",
+  "description": "The packages utilized include mainly firebase, jquery, and angular.",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-toastr": "^2.1.1",
+    "angularfire": "^2.3.0",
+    "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.1.1",
+    "tether": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayber12/wdc-website.git"
+  },
+  "keywords": [
+    "angular",
+    "firebase",
+    "angularfire",
+    "wdc-website"
+  ],
+  "author": "Jayber12",
+  "license": "SEE LICENSE IN <LICENSE>",
+  "bugs": {
+    "url": "https://github.com/jayber12/wdc-website/issues"
+  },
+  "homepage": "https://github.com/jayber12/wdc-website#readme"
+}

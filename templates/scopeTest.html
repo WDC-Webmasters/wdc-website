@@ -1,0 +1,35 @@
+<!---A page dynamically loaded according to what link on the navbar you clicked.-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../node_modules/tether/dist/js/tether.min.js"></script>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+        <script src="../scripts/app.js"></script>
+
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <body ng-app="myApp">
+            <div ng-controller="MainController">
+                <div ng-include="'navbar.html'"></div>
+                {{$scope.data.object.name}}
+                <p>$scope.data.name:
+                    {{data.name}}
+                </p>
+                <p>$scope.data.currentPageContent:
+                    {{data.currentPageContent}}</p>
+                <p>$scope.data.currentPage:
+                    {{data.currentPage}}</p>
+            </div>
+
+        </body>
+
+    </body>
+</html>

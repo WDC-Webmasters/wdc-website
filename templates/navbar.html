@@ -1,0 +1,27 @@
+<!---<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">WDC</a>
+  </div>
+  <ul class="nav navbar-nav" ng-repeat="l in data.object.navLinks">
+    <li><a style="cursor: pointer;" ng-click="whichClick(l.name, l.linkContent)">{{l.name}}</a></li>
+      </ul>
+</div>
+</nav>
+-->
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+    <a class="navbar-brand" href="#">WDC</a>
+
+    <div class="navbar" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item active" ng-repeat="l in data.object.navLinks">
+                <a class="nav-link" style="cursor: pointer;" ng-click="whichClick(l.name, l.linkContent)">{{l.name}}</a>
+                <!---<a class="nav-link" href="#">WDC<span class="sr-only">(current)</span></a>-->
+            </li>
+
+        </ul>
+
+    </div>
+</nav>

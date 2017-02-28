@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../node_modules/tether/dist/js/tether.min.js"></script>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+        <script src="../scripts/app.js"></script>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body ng-controller="MainController">
+        <div ng-include="'navbar.html'"></div>
+
+        <form class="form-horizontal" action="index.html" method="post">
+            <div class="form-control-static">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <label for="emailEntry">First Name</label>
+                    <input type="text" class="form-control" value="" placeholder="Email" id="emailEntry">
+                </div>
+                <div class="col-sm-offset-2 col-sm-6">
+                    <label for="emailEntry">Last Name</label>
+                    <input type="text" class="form-control" value="" placeholder="Email" id="emailEntry">
+                </div>
+                <div class="col-sm-offset-2 col-sm-6">
+                    <label for="emailEntry">Student?</label>
+                    <input type="checkbox" value="" id="emailEntry">
+                </div>
+
+                <div class="col-sm-offset-2 col-sm-6">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Grade
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li>
+                                <a href="#">9 - Freshman</a>
+                            </li>
+                            <li>
+                                <a href="#">10 - Sophomore</a>
+                            </li>
+                            <li>
+                                <a href="#">11 - Junior</a>
+                            </li>
+                            <li>
+                                <a href="#">12 - Senior</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-offset-2 col-sm-6">
+                    <label for="">Birthdate</label>
+                    <input type="text" class="form-control" value="" placeholder="Birthdate">
+                </div>
+
+                <div class="col-sm-offset-2 col-sm-6">
+                    <label for="emailEntry">Birthdate</label>
+                    <input type="text" class="form-control" value="" placeholder="Email" id="emailEntry">
+                </div>
+                <div class="col-sm-offset-2 col-sm-6">
+                    <label for="emailEntry">Email address</label>
+                    <input type="text" class="form-control" value="" placeholder="Email" id="emailEntry">
+                </div>
+            </form>
+
+        </body>
+    </html>
