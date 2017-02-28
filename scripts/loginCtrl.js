@@ -56,7 +56,7 @@ app.controller("loginCtrl", ["$scope", "toastr",
             }
             var user = firebase.auth().currentUser;
             console.log(".........................................");
-            console.log(user.email);
+            //console.log(user.email);
             console.log(".........................................");     
         };
 
