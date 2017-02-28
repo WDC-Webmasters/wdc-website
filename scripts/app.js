@@ -6,13 +6,15 @@ var app = angular.module('myApp', ["firebase", 'toastr']);
  * can work like a normal angular function with depedencies as namespaces 
 */
 var env = {};
-    if(window){Object.assign(env, window.__env);}
-    app.constant('__env', env);
+if(window){
+    Object.assign(env, window.__env);
+}
+app.constant('__env', env);
     
-    function disableLogging($logProvider, __env){
-      $logProvider.debugEnabled(__env.enableDebug);
-    }
-    disableLogging.$inject = ['$logProvider', '__env'];
+function disableLogging($logProvider, __env){
+  $logProvider.debugEnabled(__env.enableDebug);
+}
+disableLogging.$inject = ['$logProvider', '__env'];
 
 /* Config Functions*/
 app.config(disableLogging);
@@ -36,12 +38,12 @@ app.controller("MainController", ["$scope", "$firebaseObject", "$window",
         var obj = $firebaseObject(ref);
 
         /* To take an action after the data loads, use the $loaded() promise */
-/*        obj.$loaded().then(function() {
+        obj.$loaded().then(function() {
             // To iterate the key/value pairs of the object, use angular.forEach()
             angular.forEach(obj, function(value, key) {
                 console.log(key, value);
             });
-        });*/
+        });
         // For three-way data bindings, bind it to the scope instead
         obj.$bindTo($scope, "data.object");
 

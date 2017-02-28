@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 app.controller("loginCtrl", ["$scope", "toastr",
     /*
      * Toaster is included for notifications.
