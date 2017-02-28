@@ -1,33 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
     <head>
-<!--local node_modules (should switch to cdn later)-->
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../node_modules/tether/dist/js/tether.min.js"></script>
-<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../node_modules/tether/dist/js/tether.min.js"></script>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
 
-<!--CDN node-modules-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
-<!--<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>-->
-<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angularFire/2.3.0/angularfire.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css"/>
-<script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+        <script src="../node_modules/angular/angular.min.js"></script>
+        <script src="../node_modules/firebase/firebase.js"></script>
+        <script src="../node_modules/angularfire/dist/angularfire.min.js"></script>
+        <script src="../scripts/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
 
-<!--local scripts for angularjs controllers-->
-<script src="../src/app/config/env.js"></script>
-<script src="../scripts/app.js"></script>
-<script src="../scripts/loginCtrl.js"></script>
+        <link rel="stylesheet" type="text/css" href="../node_modules/angular-toastr/dist/angular-toastr.min.css"/>
+        <script type="text/javascript" src="../node_modules/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+
+        <script src="../scripts/loginCtrl.js"></script>
 
         <meta charset="utf-8">
         <title></title>
     </head>
-
     <div ng-controller="MainController" ng-include="'navbar.html'"></div>
     <body ng-controller="loginCtrl">
         <form action="" method="post" class="form-horizontal">
@@ -41,7 +33,6 @@
                 <div class="col-sm-offset-2 col-sm-6">
                     <label for="passwordEntry">Password</label>
                     <input type="password" class="form-control" placeholder="Password" value="" id="passwordEntry" ng-model="password">
-
                 </div>
             </div>
             <div class="form-control-static">

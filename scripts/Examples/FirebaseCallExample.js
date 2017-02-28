@@ -1,3 +1,19 @@
+var env = {};
+// Import variables if present (from env.js)
+if(window){
+  Object.assign(env, window.__env);
+}
+app.constant('__env', env);
+
+function disableLogging($logProvider, __env){
+  $logProvider.debugEnabled(__env.enableDebug);
+}
+
+// Inject dependencies
+disableLogging.$inject = ['$logProvider', '__env'];
+
+app.config(disableLogging);
+
 app.config(function(toastrConfig) {
     var config = {
         // This tells firebase where to look.
