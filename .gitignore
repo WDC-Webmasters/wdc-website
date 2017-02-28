@@ -1,2 +1,4 @@
-/src/app/config/
-/node_modules
+src/app/config/config.json
+src/app/config/env.js
+src/app/config/
+node_modules/
