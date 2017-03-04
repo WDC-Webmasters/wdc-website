@@ -4,11 +4,14 @@
   "description": "The packages utilized include mainly firebase, jquery, and angular.",
   "main": "app.js",
   "dependencies": {
+    "angular-sessionstorage": "^1.1.5",
     "bootstrap": "^4.0.0-alpha.6",
     "jquery": "^3.1.1",
     "tether": "^1.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -25,7 +25,10 @@
     <meta charset="utf-8">
     <title></title>
 </head>
-<div ng-controller="MainController" ng-include="'navbar.html'"></div>
+
+<div ng-controller="NavBar" class='ng-cloak'>
+  <div ng-include="'navbar.html'"></div>
+</div>
 
 <body ng-controller="loginCtrl">
     <form action="" method="post" class="form-horizontal">
