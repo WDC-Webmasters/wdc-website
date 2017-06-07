@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="Registration.css">
+    <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
+    <script src="http://code.angularjs.org/snapshot/angular-animate.min.js"></script>
+    <script src="http://code.angularjs.org/snapshot/angular-aria.min.js"></script>
+    <script src="http://code.angularjs.org/snapshot/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="../scripts/Registration.js"></script>
+</head>
+
+<body ng-app="registration" layout-fill id="registration-container">
+    <div ng-controller="Registration as r" layout="column" class="wrapper" ng-cloak>
+        <h1 style="font-weight: 200;text-align: center; color: white;">Create a WDC Account</h1>
+        <div layout="row">
+            <!--<img src="randbitmap-rdo.png" alt="Mountain View" style="width:304px;height:228px;" layout layout-wrap layout-align="start center">-->
+            <section class="form" layout layout-wrap layout-align="end center">
+                <md-card name="registration form" ng-cloak flex="22" flex-sm="46" flex-xs="80">
+                    <md-content layout-padding>
+                        <form name="reg" class="registration-form" novalidate>
+                            <h3 style="font-weight:bold"> I. Student Info </h3>
+
+                            <div class="md-block" id="name">
+                                <div class="form-label" flex> Student Name </div>
+                                <div layout="row" layout-align="space-around center">
+
+                                    <md-input-container class="md-block" flex="50">
+                                        <input type="text" name="firstname" ng-model="user.student.firstName" placeholder="First" required/>
+                                        <div class="form-error" ng-show="reg.$submitted || reg.firstname.$touched" for="firstname">
+                                            <div ng-messages="reg.firstname.$error">
+                                                <div ng-message="required">First name required!</div>
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex="50">
+                                        <input type="text" name="lastname" ng-model="user.student.lastName" placeholder="Last" required/>
+                                        <div class="form-error" ng-show="reg.$submitted || reg.lastname.$touched" for="lastname">
+                                            <div ng-messages="reg.lastname.$error">
+                                                <div ng-message="required">Last name required!</div>
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </div>
+
+                            <md-input-container layout="column" id="email" class="md-block" flex>
+                                <div class="form-label" flex> Email Address </div>
+                                <input type="email" name="email" ng-model="user.student.email" flex required/>
+                                <div class="form-error" ng-show="reg.$submitted || reg.email.$touched" for="email">
+                                    <div ng-messages="reg.email.$error">
+                                        <div ng-message="email">Invalid email!</div>
+                                        <div ng-message="required">Email required!</div>
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <!-- for reference when we need this later
+	                    <md-input-container layout="column" id="birthdate input" class="md-block" flex>
+	                        <div class="form-label" flex> Birthdate </div>
+	                        <md-datepicker name="birthdate" ng-model="user.birthdate" md-placeholder="Enter Birthdate" required md-min-date="prop.minDate" md-max-date="prop.maxDate" required flex>
+	                        </md-datepicker>
+	                        <div class="form-error" ng-show="reg.$submitted || reg.birthdate.$touched" ng-model-options="{updateOn: 'mousedown blur'}" flex="66">
+	                            <div ng-messages="reg.birthdate.$error">
+	                                <div ng-message="valid">The entered value is not a date!</div>
+	                                <div ng-message="required">This date is required!</div>
+	                                <div ng-message="mindate">You can't be that old!</div>
+	                                <div ng-message="maxdate">You can't be that young!</div>
+	                            </div>
+	                        </div>
+	                    </md-input-container>-->
+
+                            <md-input-container layout="column" id="grade" class="md-block" flex="50">
+                                <div class="form-label"> Grade </div>
+                                <md-select name="grade" ng-model="user.student.grade" required>
+                                    <md-option value="">--select--</md-option>
+                                    <md-option value="9">9</md-option>
+                                    <md-option value="10">10</md-option>
+                                    <md-option value="11">11</md-option>
+                                    <md-option value="12">12</md-option>
+                                </md-select>
+                                <div class="form-error" ng-show="reg.$submitted || reg.grade.$touched" flex="90">
+                                    <div ng-messages="reg.grade.$error">
+                                        <div ng-message="required">Select a Grade!</div>
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container layout="column" id="studentID" class="md-block" flex>
+                                <div class="form-label" flex="33"> Student ID Number </div>
+                                <input type="text" name="studentID" ng-model="user.student.studentID" ng-model-options="{ updateOn: 'mousedown blur' }" ng-pattern="/^[0-9]{8,10}$/" required/>
+                                <div class="form-error" ng-show="reg.$submitted || reg.studentID.$touched" for="studentID" flex="50">
+                                    <div ng-messages="reg.studentID.$error">
+                                        <div ng-message="pattern">Invalid Student ID! (8-10 numbers)</div>
+                                        <div ng-message="required">Student ID required! (8-10 numbers)</div>
+                                    </div>
+                                </div>
+                                <!--fix it takes in characters-->
+                            </md-input-container>
+                            <!--done-->
+                            <md-input-container layout="column" id="phone" class="md-block" flex>
+                                <div class="form-label" flex="33"> Mobile Phone # </div>
+                                <input type="text" name="phone" ng-model="user.student.phone" ng-model-options="{updateOn: 'mousedown blur'}" ng-pattern="phoneNumberPattern" ng-required="phoneNumberPattern" />
+                                <div class="form-error" ng-show="reg.$submitted || reg.phone.$touched" for="phone">
+                                    <div ng-messages="reg.phone.$error">
+                                        <div ng-message="required">Phone number required! </div>
+                                        <div ng-message="pattern">Invalid phone number! Format:(xxx) xxx-xxxx </div>
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <!--done-->
+                            <md-input-container layout="column" id="password" class="md-block" flex>
+                                <div class="form-label" flex="33"> Password </div>
+                                <input type='password' name='password' ng-model='user.student.password' required/>
+                                <div class="form-error" ng-show="reg.$submitted || reg.password.$touched" role="alert" for="password">
+                                    <div ng-messages="reg.password.$error">
+                                        <div ng-message="required"> Password required!</div>
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <!--done-->
+                            <md-input-container layout="column" id="confirmPwd" class="md-block" flex>
+                                <div class="form-label" flex="33"> Confirm Password </div>
+                                <input type='password' name='confirmPwd' ng-model='confirmPwd' ng-pattern="{{user.student.password}}" required/>
+                                <div ng-show="reg.$submitted || reg.confirmPwd.$touched" role="alert" for="confirmPwd">
+                                    <div ng-messages="reg.confirmPwd.$error">
+                                        <div ng-message="required">Confirm your password!</div>
+                                        <div ng-message="pattern">Passwords don't match!</div>
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <!--done-->
+
+                            <!--PARENT INFORMATION-->
+
+                            <h3 style="font-weight:bold"> II. Main Parent Info</h3>
+
+                            <div class="md-block" id="parent name">
+                                <div class="form-label" flex> Parent Name </div>
+                                <div layout="row" layout-align="space-around center">
+
+                                    <md-input-container class="md-block" flex="50">
+                                        <input type="text" name="parentFirst" ng-model="user.parent.firstName" placeholder="First" required/>
+                                        <div class="form-error" ng-show="reg.$submitted || reg.parentFirst.$touched" for="parentFirst">
+                                            <div ng-messages="reg.firstname.$error">
+                                                <div ng-message="required">First name required!</div>
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex="50">
+                                        <input type="text" name="parentLast" ng-model="user.parent.lastName" placeholder="Last" required/>
+                                        <div class="form-error" ng-show="reg.$submitted || reg.parentLast.$touched" for="parentLast">
+                                            <div ng-messages="reg.parentLast.$error">
+                                                <div ng-message="required">Last name required!</div>
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </div>
+
+                            <md-input-container layout="column" id="parent home phone" class="md-block" flex>
+                                <div class="form-label" flex="33"> Home Phone #</div>
+                                <input type="text" name="homephone" ng-model="user.parent.homephone" ng-model-options="{updateOn: 'mousedown blur'}" ng-pattern="phoneNumberPattern" ng-required="phoneNumberPattern" />
+                                <div class="form-error" ng-show="reg.$submitted || reg.homephone.$touched" for="homephone">
+                                    <div ng-messages="reg.homephone.$error">
+                                        <div ng-message="required">Phone number required! </div>
+                                        <div ng-message="pattern">Invalid phone number! Format:(xxx) xxx-xxxx </div>
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container layout="column" id="parent mobile phone" class="md-block" flex>
+                                <div class="form-label" flex="33"> Mobile Phone #</div>
+                                <input type="text" name="mobilephone" ng-model="user.parent.mobilephone" ng-model-options="{updateOn: 'mousedown blur'}" ng-pattern="phoneNumberPattern" ng-required="phoneNumberPattern" />
+                                <div class="form-error" ng-show="reg.$submitted || reg.mobilephone.$touched" for="mobilephone">
+                                    <div ng-messages="reg.mobilephone.$error">
+                                        <div ng-message="required">Phone number required! </div>
+                                        <div ng-message="pattern">Invalid phone number! Format:(xxx) xxx-xxxx </div>
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container layout="column" id="parent employer" class="md-block" flex>
+                                <div class="form-label" flex="33"> Employer</div>
+                                <input type="text" name="parentEmployer" ng-model="user.parent.employer" required/>
+
+                                <div class="form-error" ng-show="reg.$submitted || reg.parentEmployer.$touched" for="parentEmployer">
+                                    <div ng-messages="reg.parentEmployer.$error">
+                                        <div ng-message="required">arent Employer required!</div>
+                                    </div>
+                                    <!-- will move to better popup later-
+                                <p>We will use this information for the sole purpose of sending you your company’s donation matching policy so that it is easier for you to pursue a corporate donation matching, which is a key source of funding for EVSD. Without this donation matching, more costs will have to be shared by the students and parents.</p>
+                                -->
+                                </div>
+                            </md-input-container>
+
+                            <h3 style="font-weight:bold"> III. Other</h3>
+
+                            <md-input-container class="md-block" id="concerns">
+                                <div class="form-label" flex="33"> Is there anything else we should know? (Concerns, Allergies, etc.)</div>
+                                <textarea ng-model="user.other" md-maxlength="150" rows="5" md-select-on-focus ng-model-options="{updateOn: 'mousedown blur'}"></textarea>
+                            </md-input-container>
+
+                            <md-input-container class="md-block" id="Terms of Service">
+                                <md-checkbox name="tos" ng-model="user.tos" required>
+                                    I accept the terms of service.
+                                </md-checkbox>
+                                <div ng-messages="user.tos.$error" multiple md-auto-hide="false">
+                                    <div ng-message="required">
+                                        You must accept the terms of service before you can proceed.
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+
+                            <section name="buttons" id="submit">
+                                <md-button ng-disabled="reg.$invalid" ng-click="update(user)" class="md-raised md-primary">Confirm and Pay</md-button>
+                                <md-button ng-click="reset()" class="md-raised md-warn">Reset</md-button>
+                                <!--should have a confirmation here-->
+                            </section>
+
+                        </form>
+                    </md-content>
+            </section>
+        </div>
+        <pre style="color: white;">user = {{user | json}}</pre>
+        <pre style="color: white;">master = {{master | json}}</pre>
+    </div>
+
+    </div>
+
+</body>
+
+</html>
+<!--
+Copyright 2017 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

@@ -1,0 +1,78 @@
+.wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+
+  /*
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+  */
+}
+
+.wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+/*.md-input-container{
+  height: 20px;
+}*/
+
+
+.form-label{
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.header {
+  background: tomato;
+}
+
+.footer {
+  background: lightgreen;
+}
+
+.main {
+  text-align: left;
+  background: deepskyblue;
+}
+
+.aside-1 {
+  background: gold;
+}
+
+.aside-2 {
+  background: hotpink;
+}
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 auto; }
+}
+
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+  .aside-1 { order: 1; }
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
+}
+
+html{
+  background: orange; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(orange, black); /* For Safari 5.1 to 6.0 */
+  background: -moz-linear-gradient(orange, black); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(orange, black); /* Standard syntax */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+}
+#registration-container {
+  height: 100%;
+  margin: 0;
+  background-color: transparent; /* so that the full html background shows through*/
+  /*overflow-y:hidden; *//* To hide the vertical scroll bar */
+}

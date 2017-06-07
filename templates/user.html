@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/tether/dist/js/tether.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+    <meta charset="utf-8">
+    <title>Profile - Mihir Thanekar</title>
+</head>
+
+
+
+<body>
+    <div class="form-group">
+        <h5 class="text-center" style="font-family:Tahoma, Geneva, sans-serif;">WDC Settings</h5>
+        <div class="form-control-static col-sm-6">
+            <label for="passwordEntry" class="col-form-label col-form-label-sm">First Name</label>
+            <input type="value" class="form-control form-control-sm" placeholder="e.g. Mary" value="" id="passwordEntry" ng-model="password">
+        </div>
+        <div class="form-control-static col-sm-6">
+            <label for="passwordEntry" class="col-form-label col-form-label-sm">Last Name</label>
+            <input type="value" class="form-control form-control-sm" placeholder="e.g. Jane" value="" id="passwordEntry" ng-model="password">
+        </div>
+        <div class="form-control-static col-sm-6">
+            <label for="passwordEntry" class="col-form-label col-form-label-sm">Phone Number</label>
+            <input type="value" class="form-control form-control-sm" placeholder="e.g. 2130231234" value="" id="passwordEntry" ng-model="password">
+        </div>
+        <div class="form-control-static col-sm-6">
+            <label for="passwordEntry" class="col-form-label col-form-label-sm">Password</label>
+            <input type="password" class="form-control form-control-sm" placeholder="e.g. pa$$w0rd... Don't use that!" value="" id="passwordEntry" ng-model="password">
+        </div>
+
+
+        <div class="form-control-static col-sm-6">
+            <label for="passwordEntry" class="col-form-label col-form-label-sm">Grade</label>
+            <select class="form-control col-form-label col-form-label-sm">
+                <option value=0>Select a grade e.g. 9-12</option>
+                <option value=9>Freshman</option>
+                <option value=10>Sophomore</option>
+                <option value=11>Junior</option>
+                <option value=12>Senior</option>
+            </select>
+        </div>
+
+        <div class="form-control-static col-sm-6">
+            <label for="passwordEntry" class="col-form-label col-form-label-sm">Email</label>
+            <input type="value" class="form-control form-control-sm" placeholder="e.g. example@example.com" value="" id="passwordEntry" ng-model="password">
+        </div>
+        <div class="form-control-static col-sm-6">
+            <label for="passwordEntry" class="col-form-label col-form-label-sm">Student ID</label>
+            <input disabled type="value" class="form-control form-control-sm" placeholder="Your 8-12 digit student ID" value="whatever the student id is and it can't be edited" id="passwordEntry" ng-model="password">
+        </div>
+        <div class="form-control-static col-sm-6">
+            <label for="passwordEntry" class="col-form-label col-form-label-sm">Status</label>
+            <input disabled type="value" class="form-control form-control-sm" placeholder="What permissions do you have?" value="Frozen" id="passwordEntry" ng-model="password">
+        </div>
+        <div class="row form-control-static">
+            <button class="btn btn-primary col-sm-3"><i class="icon-save"></i> Save Changes</button>
+            <button class="btn btn-secondary col-sm-3"><i class="icon-remove-sign"></i> Cancel</button>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+    <!-- If user is a student -->
+
+
+
+</body>
+
+</html>

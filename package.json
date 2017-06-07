@@ -4,6 +4,7 @@
   "description": "The packages utilized include mainly firebase, jquery, and angular.",
   "main": "app.js",
   "dependencies": {
+    "angular-data-grid": "^1.0.0",
     "angular-sessionstorage": "^1.1.5",
     "bootstrap": "^4.0.0-alpha.6",
     "jquery": "^3.1.1",

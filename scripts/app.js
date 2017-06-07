@@ -1,18 +1,18 @@
 'use strict';
 
-var app = angular.module('myApp', ["firebase", 'toastr']);
+var app = angular.module('myApp', ["firebase", "toastr"]);
 
-/* 
- * Code sets the environment variables as a constant (using window() in env.js) 
+/*
+ * Code sets the environment variables as a constant (using window() in env.js)
  * on the module so that they can be used for config. The inject so that disableLogging()
- * can work like a normal angular function with depedencies as namespaces 
-*/
+ * can work like a normal angular function with depedencies as namespaces
+ */
 var env = {};
-if(window){
+if (window) {
     Object.assign(env, window.__env);
 }
 app.constant('__env', env);
-   
+
 app.config(function() {
     var config = {
         // This tells firebase where to look.
@@ -41,7 +41,7 @@ app.config(function() {
     }
     disableLogging.$inject = ['$logProvider', '__env'];
     app.config(disableLogging);
-**/   
+**/
 /* References
     https://docs.angularjs.org/guide/services
     http://jsfiddle.net/e8tEX/

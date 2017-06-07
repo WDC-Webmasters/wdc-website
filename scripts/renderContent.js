@@ -1,17 +1,20 @@
-app.controller("NavBar", ["$scope", "$firebaseObject", "$window", "transportNavRequest",
-    function($scope, $firebaseObject, $window, transportNavRequest) {
+app.controller("NavBar", ["$scope", "$firebaseObject", "$window", "transportNavRequest","$location",
+    function($scope, $firebaseObject, $window, transportNavRequest,$location) {
         let ref = firebase.database().ref("navLinks");
         var obj = $firebaseObject(ref);
 
-        
+
 
         $scope.data = {navLinks_object: obj};
 
         $scope.setPage = function(page_to_create){
             /* calls transportNavRequestRequest service and puts in page_to_create */
             $scope.data = page_to_create;
+            console.log(page_to_create);
             transportNavRequest.set($scope.data);
+            $window.location.hash="";
             $window.location.href = "newPage.html";
+            //$location.path("/hi");
         }
         /*TODO: get the page to preserve the navBar on a state change or refresh it*/
     }

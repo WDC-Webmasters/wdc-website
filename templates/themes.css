@@ -1,0 +1,109 @@
+a:hover {
+    color: rgb(159, 124, 34);
+}
+
+div a.footLink {
+    /*color: inherit;*/
+    text-decoration: none;
+    margin-right: 0 auto;
+    position: relative;
+    bottom: 19px;
+    /*position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 0;
+    width: 100%
+    /*top: 50%;
+    margin-top: -50px;*/
+    /*align-items: center;
+    margin-right: 0.3em;
+    /*top: 20px;*/
+    /**/
+    /*transform: translateY(50%);*/
+    /*top: parent.height;*/
+    /*transform: translateY(.6em);*/
+    /*height: inherit;*/
+}
+
+
+/*
+#outside {
+    background-color: aqua;
+}*/
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 6px;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+
+/*
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}*/
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 20px 20px 20px 20px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+
+}
+.btn-static {
+  background-color: rgb(250, 179, 99);
+  border: 1px solid lightgrey;
+  cursor: default;
+}
+.btn-static:active {
+  -moz-box-shadow:    inset 0 0 0px white;
+  -webkit-box-shadow: inset 0 0 0px white;
+  box-shadow:         inset 0 0 0px white;
+}
+
+
+#container {
+    width: 100%;
+    position: relative;
+    margin-top: 36px;
+    /*Make the margin a fourth of the total thing.*/
+    left: 0;
+    /*background-color: beige;*/
+}
+
+a+a {
+    margin-left: 10px;
+}
+
+.white {
+    color: white;
+}
+
+.footer {
+    background-color: #d6ae91;
+    /*#eee;*/
+    /*width: 1000%;
+			left: -500%;
+			position: absolute;*/
+    top: 0px;
+    bottom: 0px;
+}
+
+img.caraImages {
+    height: inherit;
+    width: inherit;
+}
+
+i.carArrows {
+    font-size: 50px;
+    color: green;
+}

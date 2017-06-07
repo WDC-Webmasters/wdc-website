@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+<!---<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
     <a class="navbar-brand" href="#">WDC</a>
     <div class="navbar">
       <ul class="navbar-nav" ng-repeat="page in data.navLinks_object">
@@ -6,5 +6,27 @@
             <a href="#{{page.name}}" ng-click="setPage(page)">{{page.name}}</a>
         </li>
       </ul>
+    </div>
+</nav>
+--->
+<!---<link rel="stylesheet" href="themes.css" type="text/css">-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars" style="font-size:2em;" aria-hidden="true"></i>
+    </button>
+    <a class="navbar-brand" href="homepage.html"><img src="../resources/wdc-logo.png" height="50px" width="50px" alt="Oh no! Something went wrong">
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+            <li class="nav-item" ng-repeat="l in data.navLinks_object">
+                <a class="nav-link active" style="cursor: pointer;color:#dd6e43;" ng-click="setPage(l)">{{l.name}}</a>
+            </li>
+            <a ng-href="login.html" class="nav-link active" style="cursor: pointer;color:#dd6e43;">Login</a>
+
+        </ul>
+
     </div>
 </nav>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.deep_orange-indigo.min.css">
+    <link rel="stylesheet" href="angular-data-grid.material.css">
+
+    <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
+    <script src="http://code.angularjs.org/snapshot/angular-animate.min.js"></script>
+    <script src="http://code.angularjs.org/snapshot/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="../node_modules/angular-data-grid/dist/pagination.min.js"></script>
+    <script src="../node_modules/angular-data-grid/dist/dataGrid.min.js"></script>
+    <script src="Table.js"></script>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/tether/dist/js/tether.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+</head>
+
+<body ng-app="myApp">
+
+
+
+    <div ng-controller="Table" class="wrapper" ng-cloak>
+        <div layout="column" layout-fill>
+            <md-toolbar layout="row" layout-align="center">
+                <div class="md-toolbar-tools" flex-gt-md="60" flex-md="80" flex-sm="100">
+                    <span flex>WDC Admin &mdash; Users</span>
+                </div>
+            </md-toolbar>
+            <md-content layout-padding layout="row" layout-align="center">
+
+                <div flex-gt-md="60" flex-md="80" flex-xs="100">
+                    <hr>
+
+                    <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
+
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                            <thead>
+                                <tr>
+                                    <th sortable="student.lastName" class="sortable mdl-data-table__cell--non-numeric"><span>Name</span></th>
+                                    <th sortable='role' class="sortable mdl-data-table__cell--non-numeric"><span>Role</span></th>
+                                    <th sortable='level' class="sortable mdl-data-table__cell--non-numeric"><span>Level</span></th>
+                                    <th sortable="student.grade" class="sortable mdl-data-table__cell--non-numeric"><span>Grade</span></th>
+                                    <th sortable="student.phone" class="mdl-data-table__cell--non-numeric"><span>Student Phone</span></th>
+                                    <th sortable="student.studentID" class="sortable mdl-data-table__cell--non-numeric"><span>Student ID</span></th>
+                                    <th sortable="balance" class="sortable mdl-data-table__cell--non-numeric"><span>Balance</span></th>
+                                    <th sortable='other.dateLastLogin' class="sortable mdl-data-table__cell--non-numeric"><span>Date Last Login</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr grid-item>
+                                    <td class="mdl-data-table__cell--non-numeric">
+                                        <button class="btn-link" ng-click="getUser(item)" style="text-decoration:none; color:green;">
+                                            <span ng-bind="item.student.firstName"></span>
+                                            <span ng-bind="item.student.lastName"></span>
+                                        </button>
+                                        <!--{{hi}}-->
+
+                                    </td>
+                                    <td class="mdl-data-table__cell--non-numeric"><span ng-bind="item.role"></span></td>
+                                    <td class="mdl-data-table__cell--non-numeric"><span ng-bind="item.level"></span></td>
+                                    <td class="mdl-data-table__cell--non-numeric"><span ng-bind="item.student.grade"></span></td>
+                                    <td class="mdl-data-table__cell--non-numeric"><span ng-bind="item.student.phone"></span></td>
+                                    <td class="mdl-data-table__cell--non-numeric"><span ng-bind="item.student.studentID"></span></td>
+                                    <td class="mdl-data-table__cell--non-numeric"><span ng-bind="item.balance"></span></td>
+                                    <td class="mdl-data-table__cell--non-numeric"><span ng-bind="item.other.dateLastLogin"></span></td>
+                                </tr>
+                                <!--
+                        http://stackoverflow.com/questions/17762354/remove-element-for-certain-screen-sizes
+                        On mobile (smaller than md or 640px) you can hide the studentID, level,
+                        -->
+                            </tbody>
+                        </table>
+
+                        <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                            <grid-pagination max-size="5" boundary-links="true" class="pagination" ng-if="paginationOptions.totalItems  > paginationOptions.itemsPerPage" total-items="paginationOptions.totalItems" ng-model="paginationOptions.currentPage" ng-change="reloadGrid()" items-per-page="paginationOptions.itemsPerPage">
+                            </grid-pagination>
+                            <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                                <md-select ng-init="paginationOptions.itemsPerPage = '10'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()">
+                                    <md-option>5</md-option>
+                                    <md-option>10</md-option>
+                                    <md-option>25</md-option>
+                                    <md-option>{{filtered.length}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+
+                    </div>
+                </div>
+            </md-content>
+        </div>
+    </div>
+
+</body>
+
+</html>
